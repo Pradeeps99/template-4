@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Elegant Luxury Watch</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7f7;
+            color: #123b5b;
+        }
+
+        .page {
+            min-height: 100vh;
+            padding: 25px 7%;
+
+            display: flex;
+            justify-content: center;
+        }
+
+        .product {
+            width: 1100px;
+
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+
+            gap: 40px;
+        }
+
+        /* LEFT IMAGE */
+
+        .gallery {
+            width: 100%;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 535px;
+            overflow: hidden;
+            border-radius: 7px;
+			 width:300px;
+			 height:400px;
+
+            background: #ddd;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            display: block;
+        }
+
+        /* THUMBNAILS */
+
+        .thumbnails {
+            display: flex;
+            gap: 15px;
+
+            margin-top: 18px;
+        }
+
+        .thumbnail {
+            width: 70px;
+            height: 85px;
+
+            overflow: hidden;
+
+            border: 1px solid #ddd;
+            background: white;
+
+            cursor: pointer;
+        }
+
+        .thumbnail.active {
+            border: 2px solid #173e5d;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        /* RIGHT SIDE */
+
+        .details {
+            padding-top: 8px;
+        }
+
+        .details h1 {
+            font-size: 36px;
+            line-height: 1.15;
+
+            font-weight: 750;
+
+            margin-bottom: 9px;
+
+            color: #123b5b;
+        }
+
+        .brand {
+            font-size: 15px;
+            font-weight: bold;
+
+            margin-bottom: 18px;
+        }
+
+        /* PRICE */
+
+        .price {
+            display: flex;
+            align-items: center;
+
+            gap: 14px;
+
+            margin-bottom: 22px;
+        }
+
+        .current {
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .old {
+            font-size: 17px;
+
+            color: #666;
+
+            text-decoration: line-through;
+        }
+
+        .discount {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* DESCRIPTION */
+
+        .description {
+            font-size: 15px;
+
+            line-height: 1.65;
+
+            max-width: 510px;
+
+            margin-bottom: 22px;
+        }
+
+        /* RATING */
+
+        .rating {
+            display: flex;
+            align-items: center;
+
+            gap: 14px;
+
+            margin-bottom: 20px;
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .stars {
+            color: #b5a225;
+
+            letter-spacing: 3px;
+
+            font-size: 17px;
+        }
+
+        /* QUANTITY */
+
+        .quantity {
+            display: flex;
+            align-items: center;
+
+            gap: 22px;
+
+            margin-bottom: 20px;
+        }
+
+        .quantity button {
+            width: 36px;
+            height: 36px;
+
+            border: none;
+            border-radius: 3px;
+
+            background: #173e5d;
+            color: white;
+
+            font-size: 22px;
+
+            cursor: pointer;
+        }
+
+        .quantity button:hover {
+            opacity: 0.85;
+        }
+
+        .quantity span {
+            font-weight: bold;
+
+            min-width: 10px;
+
+            text-align: center;
+        }
+
+        /* ADD TO BAG */
+
+        .bag {
+            width: 100%;
+            height: 52px;
+
+            border: none;
+            border-radius: 7px;
+
+            background: #173e5d;
+            color: white;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .bag:hover {
+            background: #214c6c;
+        }
+
+        /* OFFER BOX */
+
+        .offer {
+            margin-top: 26px;
+
+            padding: 25px 24px 28px;
+
+            text-align: center;
+
+            background: white;
+
+            border: 1px solid #edf0f0;
+
+            border-radius: 5px;
+
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .offer h2 {
+            font-size: 18px;
+
+            margin-bottom: 10px;
+        }
+
+        .offer p {
+            max-width: 390px;
+
+            margin: 0 auto 18px;
+
+            color: #668096;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+        .signup {
+            border: none;
+
+            border-radius: 4px;
+
+            background: #173e5d;
+            color: white;
+
+            padding: 10px 23px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .signup:hover {
+            opacity: 0.9;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+
+            .page {
+                padding: 20px;
+            }
+
+            .product {
+                grid-template-columns: 1fr;
+            }
+
+            .main-image {
+                height: 480px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .details h1 {
+                font-size: 29px;
+            }
+
+            .main-image {
+                height: 360px;
+            }
+
+            .thumbnails {
+                gap: 8px;
+            }
+
+            .thumbnail {
+                width: 52px;
+                height: 65px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <main class="page">
+
+        <section class="product">
+
+            <!-- LEFT SIDE -->
+
+            <div class="gallery">
+
+                <div class="main-image">
+                    <img src="https://benling.in/cdn/shop/files/Vintage_Collection_Digital_Watch_for_Men_Boys_with_Stopwatch_Calendar_Alarm_EL_Backlight_6051_-_Benling-3847040.jpg?v=1727208627"  alt="Luxury Watch" >
+                </div>
+
+                <div class="thumbnails">
+
+                    <div class="thumbnail active">
+                        <img src="https://m.media-amazon.com/images/I/71bf60D0pAL._AC_UY1000_.jpg" alt="Watch">
+                    </div>
+
+                    <div class="thumbnail">
+                        <img src="https://m.media-amazon.com/images/I/61DbHZ9Ug4L.jpg" alt="Watch">
+                    </div>
+
+                    <div class="thumbnail">
+                        <img src="https://m.media-amazon.com/images/I/61AepCrYDOL._AC_UY1000_.jpg" alt="Watch">
+                    </div>
+
+                    <div class="thumbnail">
+                        <img src="https://5.imimg.com/data5/SELLER/Default/2021/2/GK/HQ/HG/123118007/sn090-digital-watch-2-jpg.jpg" alt="Watch">
+                    </div>
+
+                    <div class="thumbnail">
+                        <img src="https://www.findtimewatch.com/cdn/shop/products/1_f5e4315b-18e7-4be0-80b7-f89ad3e5716a.jpg?v=1664428799" alt="Watch">
+                    </div>
+
+                    <div class="thumbnail">
+                        <img src="https://sc04.alicdn.com/kf/H380ac91637e2418ab1c292609df4e42eo.jpg_250x250.jpg" alt="Watch">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT SIDE -->
+
+            <div class="details">
+
+                <h1>Elegant Luxury Watch</h1>
+
+                <div class="brand">
+                    PRESTIGE TIME CO.
+                </div>
+
+                <div class="price">
+
+                    <span class="current">
+                        $499.99
+                    </span>
+
+                    <span class="old">
+                        $799.99
+                    </span>
+
+                    <span class="discount">
+                        38% OFF
+                    </span>
+
+                </div>
+
+
+                <p class="description">
+
+                    This luxurious timepiece combines elegance with
+                    precision craftsmanship. Perfect for formal occasions
+                    or everyday wear. It features premium materials and
+                    impeccable design.
+
+                </p>
+
+
+                <!-- RATING -->
+
+                <div class="rating">
+
+                    <span class="stars">
+                        ★★★★★
+                    </span>
+
+                    <span>
+                        Rated 4.8/5 (256 reviews)
+                    </span>
+
+                </div>
+
+
+                <!-- QUANTITY -->
+
+                <div class="quantity">
+
+                    <button onclick="decrease()">
+                        −
+                    </button>
+
+                    <span id="quantity">
+                        1
+                    </span>
+
+                    <button onclick="increase()">
+                        +
+                    </button>
+
+                </div>
+
+
+                <!-- ADD TO BAG -->
+
+                <button class="bag">
+                    Add to Bag
+                </button>
+
+
+                <!-- OFFER -->
+
+                <div class="offer">
+
+                    <h2>
+                        Limited-Time Offer!
+                    </h2>
+
+                    <p>
+                        Get an additional 10% off your first purchase
+                        when you sign up for our newsletter.
+                    </p>
+
+                    <button class="signup">
+                        Sign Up Now
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        let quantity = 1;
+
+        function increase() {
+
+            quantity++;
+
+            document.getElementById("quantity").innerText = quantity;
+
+        }
+
+        function decrease() {
+
+            if (quantity > 1) {
+
+                quantity--;
+
+                document.getElementById("quantity").innerText = quantity;
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
