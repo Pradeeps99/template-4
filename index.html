@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Timeless Watches – Elegant Luxury Watch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="#" class="logo">TIMELESS WATCHES</a>
+    <div class="search">
+      <input type="text" placeholder="Search...">
+      <span class="search-icon">🔍</span>
+    </div>
+    <nav>
+      <a href="#">Shop</a>
+      <a href="#">New Arrivals</a>
+      <a href="#">Brands</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main class="product">
+    <section class="gallery">
+      <div class="main-image"></div>
+      <div class="thumbs"></div>
+    </section>
+
+    <section class="details">
+      <h1>Elegant Luxury Watch</h1>
+      <p class="brand">PRESTIGE TIME CO.</p>
+
+      <p class="price">
+        <span class="now">$499.99</span>
+        <span class="old">$799.99</span>
+        <span class="off">38% OFF</span>
+      </p>
+
+      <p class="desc">This luxurious timepiece combines elegance with precision craftsmanship. Perfect for formal occasions or everyday wear, it features premium materials and impeccable design.</p>
+
+      <div class="rating">
+        <span class="stars">★★★★★</span>
+        <span>Rated 4.8/5 (256 reviews)</span>
+      </div>
+
+      <div class="qty">
+        <button type="button" id="minus">-</button>
+        <input type="text" id="qty" value="1">
+        <button type="button" id="plus">+</button>
+      </div>
+
+      <button class="add-bag">Add to Bag</button>
+
+      <div class="offer">
+        <h3>Limited-Time Offer!</h3>
+        <p>Get an additional 10% off your first purchase when you sign up for our newsletter.</p>
+        <button class="signup">Sign Up Now</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const q = document.getElementById('qty');
+    document.getElementById('plus').onclick = () => q.value = +q.value + 1;
+    document.getElementById('minus').onclick = () => q.value = Math.max(1, +q.value - 1);
+  </script>
+</body>
+</html>
